@@ -140,7 +140,7 @@ namespace project_connect4
                 return false;
             }
         }
-        public static void CheckWin(string Player)
+      public static void CheckWin(string Player)
         {
             Console.WriteLine(Player + " You Win Connect 4 game.");
         }
@@ -150,16 +150,16 @@ namespace project_connect4
             FourCoins obj2 = new VerticalCheck();
             FourCoins obj3 = new DiagonalCheck();
             MakeABoard(board);
-            int dChoice; bool again = true;
+            int dChoice;bool again=true;
             do
             {
                 dChoice = DropANumber(board, player1);
                 CheckDropCoin(board, player1, dChoice, player1, player2);
                 MakeABoard(board);
-
-                if (obj1.CheckFour(board, player2, player1, player2) == 1 || obj2.CheckFour(board, player2, player1, player2) == 1 || obj3.CheckFour(board, player2, player1, player2) == 1)
+               
+                if ( obj1.CheckFour(board, player2, player1, player2)==1|| obj2.CheckFour(board, player2, player1, player2) == 1|| obj3.CheckFour(board, player2, player1, player2) == 1)
                 {
-                    CheckWin(player1);
+                   CheckWin (player1);
                     again = RestartGame(board);
                     if (again == true)
                     {
@@ -174,7 +174,7 @@ namespace project_connect4
                 win = obj2.CheckFour(board, player2, player1, player2);
 
 
-                if (obj1.CheckFour(board, player2, player1, player2) == 1 || obj2.CheckFour(board, player2, player1, player2) == 1 || obj3.CheckFour(board, player2, player1, player2) == 1)
+                if  (obj1.CheckFour(board, player2, player1, player2) == 1 || obj2.CheckFour(board, player2, player1, player2) == 1 || obj3.CheckFour(board, player2, player1, player2) == 1)
                 {
                     CheckWin(player2);
                     again = RestartGame(board);
@@ -193,7 +193,7 @@ namespace project_connect4
             } while (again != false);
         }
     }
-    public abstract class FourCoins
+     public  abstract class FourCoins
     {
         public abstract int CheckFour(char[,] board, string Player, String name1, string name2);
     }
@@ -250,12 +250,12 @@ namespace project_connect4
             for (int i = 8; i >= 1; i--)
             {
 
-                for (int j = 9; j >= 1; j--)
+                for (int j= 9; j >= 1; j--)
                 {
                     if (board[i, j] == symb &&
                          board[i, j - 1] == symb &&
                          board[i, j - 2] == symb &&
-                         board[i, j - 3] == symb)
+                         board[i,j- 3] == symb)
                     {
                         w = 1;
                     }
@@ -324,8 +324,8 @@ namespace project_connect4
             symb2 = 'O';
             Game ob = new Game(Name1, Name2, symb1, symb2);
             ob.Rules();
-            ob.Play(Name1, Name2);
+            ob.Play(Name1,Name2);
 
-        }
+        }     
     }
 }
